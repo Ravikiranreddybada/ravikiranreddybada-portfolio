@@ -11,9 +11,11 @@
 
 .navbar.scrolled {
   padding: 1rem 0;
-  background: rgba(5, 5, 5, 0.8);
+  background: var(--bg-color-light);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-glow);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -27,6 +29,14 @@
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-glow);
 }
 
 .nav-links {
