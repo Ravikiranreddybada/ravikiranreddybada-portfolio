@@ -1,0 +1,126 @@
+.projects-section {
+  padding: var(--section-padding);
+}
+
+.projects-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+  cursor: default;
+}
+
+.project-row:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Header / Info Side */
+.p-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.p-title-group h3 {
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+
+.dev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #ff9f1c; /* Soft orange */
+  border: 1px solid rgba(255, 159, 28, 0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  background: rgba(255, 159, 28, 0.05);
+}
+
+.p-tagline {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+
+/* Body / Description */
+.p-body {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.p-body p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.p-impact {
+  color: var(--text-primary);
+  opacity: 0.9;
+}
+
+/* Footer / Tech & Links */
+.p-footer {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.p-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.p-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color-light);
+  transition: all 0.3s ease;
+}
+
+.link-icon:hover {
+  background: var(--text-primary);
+  color: var(--bg-color);
+  transform: rotate(15deg) scale(1.1);
+}
+
+@media (max-width: 900px) {
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

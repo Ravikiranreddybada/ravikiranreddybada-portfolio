@@ -1,0 +1,96 @@
+/* App wrapper & structural utilities */
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1; /* Keep above glowing background */
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* Dynamic Ambient Glow Tracker */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0; /* Behind everything */
+  transition: opacity 0.3s ease;
+}
+
+/* Section Shared Styles */
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  letter-spacing: -1px;
+}
+
+/* Base Glassmorphism Node */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 2.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit;
+  padding: 1px; 
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Standard Pill Badge */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color-light);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.tech-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.magnetic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  background: var(--text-primary);
+  color: var(--bg-color);
+  font-weight: 600;
+  border-radius: 50px;
+  font-size: 1rem;
+  transition: transform 0.1s ease;
+}
