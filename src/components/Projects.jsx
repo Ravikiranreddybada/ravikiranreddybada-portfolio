@@ -66,7 +66,9 @@ const Projects = () => {
           >
             <div className="p-header">
               <div className="p-title-group">
-                <h3>{project.title}</h3>
+                <a href={project.live || project.github} target="_blank" rel="noreferrer" className="project-title-link">
+                  <h3>{project.title}</h3>
+                </a>
                 {project.wip && <span className="dev-badge"><ShieldAlert size={14}/> Developing</span>}
               </div>
               <p className="p-tagline">{project.tagline}</p>

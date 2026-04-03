@@ -41,11 +41,11 @@ const Hero = () => {
             <span className="pulse-dot"></span> Available for Opportunities
           </motion.div>
           
-          <motion.h1 variants={childVariants} className="hero-name">
+          <motion.h1 variants={childVariants} className="hero-name name-gradient">
             Bada Ravi Kiran Reddy.
           </motion.h1>
           <motion.h2 variants={childVariants} className="hero-title text-gradient">
-            Intelligent Systems Engineer.
+            AI & ML Engineer.
           </motion.h2>
           
           <motion.p variants={childVariants} className="hero-desc">

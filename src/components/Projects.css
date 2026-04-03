@@ -37,6 +37,15 @@
 .p-title-group h3 {
   font-size: 2rem;
   color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.project-title-link {
+  text-decoration: none;
+}
+
+.project-title-link:hover h3 {
+  color: #00d2ff;
 }
 
 .dev-badge {
