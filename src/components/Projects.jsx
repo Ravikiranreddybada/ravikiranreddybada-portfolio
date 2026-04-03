@@ -54,11 +54,11 @@ const Projects = () => {
         Production Architectures.
       </motion.h2>
       
-      <div className="projects-grid">
+      <div className="projects-layout">
         {projects.map((project, idx) => (
           <motion.div 
             key={idx} 
-            className="project-card glass-panel"
+            className="project-row glass-panel"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}

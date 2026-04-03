@@ -18,10 +18,10 @@ main {
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--accent-color);
+  background: #00d2ff;
   transform-origin: 0%;
   z-index: 9999;
-  box-shadow: 0 0 10px var(--accent-glow);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
 }
 
 /* Dynamic Ambient Glow Tracker */
@@ -30,9 +30,9 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%);
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 0; /* Behind everything */

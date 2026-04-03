@@ -1,32 +1,31 @@
 :root {
-  /* High-Performance Developer Aesthetic */
-  --bg-color: #08080a;           /* Deep Charcoal / Midnight Black */
-  --bg-color-light: rgba(255, 255, 255, 0.02);
-  --bg-color-lighter: rgba(255, 255, 255, 0.05);
+  /* Ultra Premium Dark Palette */
+  --bg-color: #030303;
+  --bg-color-light: rgba(255, 255, 255, 0.03);
+  --bg-color-lighter: rgba(255, 255, 255, 0.06);
   
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
   --text-muted: #52525b;
   
-  --accent-color: #00d2ff;       /* Electric Blue */
-  --accent-color-hover: #3a86ff;
-  --accent-glow: rgba(0, 210, 255, 0.3); /* Neon Glow */
+  --accent-color: #e2e8f0;     /* Crisp white-gray accent */
+  --accent-color-hover: #ffffff;
+  --accent-glow: rgba(255, 255, 255, 0.15); /* Sleek monochromatic glow */
   
   --border-color: rgba(255, 255, 255, 0.08);
   --border-color-light: rgba(255, 255, 255, 0.15);
-  --border-glow: rgba(0, 210, 255, 0.15);
   
   /* Typography */
-  --font-heading: 'Montserrat', sans-serif;
+  --font-heading: 'Syne', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'Fira Code', monospace;
   
   /* Layout & Spaces */
   --max-width: 1200px;
   --section-padding: 8rem 2rem;
-  --border-radius-sm: 8px;
-  --border-radius-md: 16px;
-  --border-radius-lg: 24px;
+  --border-radius-sm: 12px;
+  --border-radius-md: 20px;
+  --border-radius-lg: 32px;
 }
 
 * {
@@ -42,6 +41,7 @@ html, body {
   line-height: 1.6;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  /* Pitch black background */
 }
 
 /* Custom Scrollbar */
@@ -52,18 +52,18 @@ html, body {
   background: var(--bg-color);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 210, 255, 0.4); /* Neon accent scrollbar */
+  background: rgba(0, 210, 255, 0.4);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-color);
+  background: #00d2ff;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -97,29 +97,8 @@ img {
 
 /* Elegant Text Gradient for Subtitles Strategy */
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 100%);
+  background: linear-gradient(135deg, #f0f0f0 0%, #8e9095 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-/* Neon Text */
-.neon-text {
-  color: var(--accent-color);
-  text-shadow: 0 0 10px var(--accent-glow);
-}
-
-/* Glassmorphism Panel */
-.glass-panel {
-  background: var(--bg-color-light);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.glass-panel:hover {
-  border-color: var(--border-glow);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px var(--border-glow);
 }

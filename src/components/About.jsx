@@ -1,101 +1,67 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FaPython, FaJs, FaReact, FaNodeJs, FaAws, FaDocker, FaDatabase 
-} from 'react-icons/fa';
-import { 
-  SiNextdotjs, SiFastapi, SiFlask, SiMongodb, SiJenkins 
-} from 'react-icons/si';
+import { Terminal, Lightbulb, Cloud, Database } from 'lucide-react';
 import './About.css';
 
 const About = () => {
   const skills = [
-    { name: "Python", icon: <FaPython /> },
-    { name: "JavaScript", icon: <FaJs /> },
-    { name: "React", icon: <FaReact /> },
-    { name: "Next.js", icon: <SiNextdotjs /> },
-    { name: "Node.js", icon: <FaNodeJs /> },
-    { name: "FastAPI", icon: <SiFastapi /> },
-    { name: "Flask", icon: <SiFlask /> },
-    { name: "MongoDB", icon: <SiMongodb /> },
-    { name: "SQL", icon: <FaDatabase /> },
-    { name: "Docker", icon: <FaDocker /> },
-    { name: "AWS", icon: <FaAws /> },
-    { name: "Jenkins", icon: <SiJenkins /> }
-  ];
-
-  const timeline = [
-    {
-      title: "B.Tech - Computer Science Engineering (AI & ML)",
-      organization: "NIIT University",
-      date: "2023 - 2027",
-      description: "Focused on core Computer Science principles with a specialization in Artificial Intelligence and Machine Learning algorithms. Actively building robust and production-ready intelligent systems."
-    }
+    "Python", "JavaScript", "SQL", "React", "Next.js", "Express.js", 
+    "FastAPI", "Flask", "MongoDB", "Docker", "AWS", "Jenkins"
   ];
 
   const variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    offscreen: { y: 50, opacity: 0 },
+    onscreen: {
       y: 0,
-      transition: { duration: 0.6, type: "spring" }
+      opacity: 1,
+      transition: { type: "spring", bounce: 0.4, duration: 0.8 }
     }
   };
 
   return (
     <section id="about" className="about-section container">
-      <motion.div 
-        initial="hidden" 
-        whileInView="visible" 
-        viewport={{ once: true, amount: 0.2 }}
-        variants={variants}
-      >
-        <h2 className="section-title">Capabilities & Journey.</h2>
+      <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, amount: 0.2 }}>
+        <h2 className="section-title">Capabilities.</h2>
       </motion.div>
       
-      <div className="about-layout">
-        
-        {/* Skills Column */}
-        <motion.div 
-          className="skills-wrapper"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={variants}
-        >
-          <h3 className="subsection-title">Technical Arsenal</h3>
-          <div className="skills-grid">
+      <div className="bento-grid">
+        {/* Education Block */}
+        <motion.div className="bento-card glass-panel col-span-2" variants={variants} initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "-50px" }}>
+          <div className="bento-icon"><Terminal size={24}/></div>
+          <h3>NIIT University</h3>
+          <p className="bento-sub">B.Tech - Computer Science Engineering (AI & ML)</p>
+          <p className="bento-muted">2023 - 2027</p>
+        </motion.div>
+
+        {/* Certifications Block */}
+        <motion.div className="bento-card glass-panel" variants={variants} initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "-50px" }}>
+           <div className="bento-icon"><Cloud size={24}/></div>
+           <h3>Certifications</h3>
+           <ul className="bento-list">
+             <li>AWS Cloud Practitioner</li>
+             <li>Python Fundamentals</li>
+           </ul>
+        </motion.div>
+
+        {/* Big Skills Block */}
+        <motion.div className="bento-card glass-panel col-span-3 row-span-2" variants={variants} initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "-50px" }}>
+          <div className="bento-icon"><Database size={24}/></div>
+          <h3>Tech Stack</h3>
+          <p className="bento-sub mb-4">I actively construct systems with these technologies.</p>
+          <div className="skills-cloud">
             {skills.map((skill, idx) => (
-              <div key={idx} className="skill-card glass-panel">
-                <div className="skill-icon">{skill.icon}</div>
-                <span className="skill-name">{skill.name}</span>
-              </div>
+              <span key={idx} className="tech-pill">{skill}</span>
             ))}
           </div>
         </motion.div>
 
-        {/* Timeline Column */}
-        <motion.div 
-          className="timeline-wrapper"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={variants}
-        >
-          <h3 className="subsection-title">Experience & Education</h3>
-          <div className="timeline">
-            {timeline.map((item, idx) => (
-              <div key={idx} className="timeline-item">
-                <div className="timeline-dot"></div>
-                <div className="timeline-content glass-panel">
-                  <span className="timeline-date">{item.date}</span>
-                  <h4>{item.title}</h4>
-                  <p className="timeline-org">{item.organization}</p>
-                  <p className="timeline-desc">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Interests Block */}
+        <motion.div className="bento-card glass-panel col-span-1" variants={variants} initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "-50px" }}>
+          <div className="bento-icon"><Lightbulb size={24}/></div>
+          <h3>Core Focus</h3>
+          <p className="bento-muted">LLM Agentic Systems</p>
+          <p className="bento-muted">Machine Learning</p>
+          <p className="bento-muted">Automation</p>
         </motion.div>
 
       </div>
