@@ -1,117 +1,72 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Terminal, Lightbulb, Cloud, Database } from 'lucide-react';
+import './About.css';
 
-const SKILLS = [
-  { cat:'Languages', items:['Python','JavaScript','SQL','TypeScript'] },
-  { cat:'Frontend', items:['React','Next.js 14','Vite','TailwindCSS'] },
-  { cat:'Backend', items:['FastAPI','Express.js','Flask','Node.js'] },
-  { cat:'ML/AI', items:['TensorFlow','PyTorch','scikit-learn','LangChain'] },
-  { cat:'Infrastructure', items:['Docker','AWS','Jenkins','MongoDB'] },
-];
+const About = () => {
+  const skills = [
+    "Python", "JavaScript", "SQL", "React", "Next.js", "Express.js", 
+    "FastAPI", "Flask", "MongoDB", "Docker", "AWS", "Jenkins"
+  ];
 
-const CERTS = [
-  { icon:'☁️', name:'AWS Cloud Practitioner', issuer:'Amazon Web Services', color:'#FF9900' },
-  { icon:'🔷', name:'Azure AI Fundamentals', issuer:'Microsoft (AI-900)', color:'#00B4F1' },
-];
+  const variants = {
+    offscreen: { y: 50, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", bounce: 0.4, duration: 0.8 }
+    }
+  };
 
-const card = {
-  hidden:   { opacity:0, y:30 },
-  visible:  { opacity:1, y:0, transition:{ type:'spring', stiffness:60, damping:18 } }
-};
-
-const About = () => (
-  <section id="about" style={{ padding:'8rem 0' }}>
-    <div className="container">
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once:true, amount:0.15 }}>
-        <p className="eyebrow">01 — About</p>
-        <h2 className="sec-title">Capabilities.</h2>
+  return (
+    <section id="about" className="about-section container">
+      <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, amount: 0.2 }}>
+        <h2 className="section-title">Capabilities.</h2>
       </motion.div>
-
-      {/* Top row: bio + certs */}
-      <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1.5rem', marginBottom:'1.5rem' }}>
-
-        {/* Bio card */}
-        <motion.div
-          className="glass scan-hover"
-          variants={card} initial="hidden" whileInView="visible" viewport={{ once:true }}
-          style={{ padding:'2.5rem', gridColumn:'1' }}
-        >
-          <div style={{ fontFamily:'var(--font-mono)', fontSize:'0.68rem', color:'var(--cyan)', letterSpacing:'0.15em', marginBottom:'1.2rem' }}>
-            &gt; cat about.txt
-          </div>
-          <h3 style={{ fontFamily:'var(--font-disp)', fontSize:'1.8rem', color:'var(--white)', marginBottom:'0.8rem', letterSpacing:'0.04em' }}>
-            NIIT University
-          </h3>
-          <p style={{ fontFamily:'var(--font-mono)', fontSize:'0.85rem', color:'var(--cyan)', marginBottom:'0.4rem' }}>
-            B.Tech — CSE (AI &amp; ML)
-          </p>
-          <p style={{ color:'var(--muted)', fontSize:'0.88rem', marginBottom:'1.5rem' }}>2023 — 2027 · Neemrana, Rajasthan</p>
-          <p style={{ color:'var(--muted)', fontSize:'0.95rem', lineHeight:'1.8' }}>
-            Third-year student actively pursuing the <span style={{ color:'var(--off)' }}>IP 2027 industry placement</span>.
-            I specialize in agentic LLM systems, computer vision pipelines, and full-stack deployment — shipping production-grade, demo-able systems over academic theory.
-          </p>
+      
+      <div className="bento-grid">
+        {/* Education Block */}
+        <motion.div className="bento-card glass-panel col-span-2" variants={variants} initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "-50px" }}>
+          <div className="bento-icon"><Terminal size={24}/></div>
+          <h3>NIIT University</h3>
+          <p className="bento-sub">B.Tech - Computer Science Engineering (AI & ML)</p>
+          <p className="bento-muted">2023 - 2027</p>
         </motion.div>
 
-        {/* Certs + focus */}
-        <div style={{ display:'flex', flexDirection:'column', gap:'1.5rem' }}>
-          {CERTS.map((c, i) => (
-            <motion.div key={i} className="glass scan-hover" variants={card} initial="hidden" whileInView="visible" viewport={{ once:true }}
-              style={{ padding:'1.8rem', display:'flex', alignItems:'center', gap:'1.2rem', flex:1 }}>
-              <div style={{ fontSize:'2rem', flexShrink:0 }}>{c.icon}</div>
-              <div>
-                <div style={{ fontWeight:600, color:'var(--off)', marginBottom:'0.2rem', fontSize:'0.95rem' }}>{c.name}</div>
-                <div style={{ fontFamily:'var(--font-mono)', fontSize:'0.7rem', color:c.color, letterSpacing:'0.08em' }}>{c.issuer}</div>
-              </div>
-              <div style={{ marginLeft:'auto' }}>
-                <span style={{ fontFamily:'var(--font-mono)', fontSize:'0.65rem', color:'var(--muted)', border:'1px solid var(--border)', padding:'0.2rem 0.5rem', borderRadius:'4px' }}>
-                  VERIFIED
-                </span>
-              </div>
-            </motion.div>
-          ))}
+        {/* Certifications Block */}
+        <motion.div className="bento-card glass-panel" variants={variants} initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "-50px" }}>
+           <div className="bento-icon"><Cloud size={24}/></div>
+           <h3>Certifications</h3>
+           <ul className="bento-list">
+             <li>AWS Cloud Practitioner</li>
+             <li>Python Fundamentals</li>
+           </ul>
+        </motion.div>
 
-          <motion.div className="glass" variants={card} initial="hidden" whileInView="visible" viewport={{ once:true }}
-            style={{ padding:'1.8rem', flex:1 }}>
-            <div style={{ fontFamily:'var(--font-mono)', fontSize:'0.68rem', color:'var(--cyan)', letterSpacing:'0.12em', marginBottom:'1rem' }}>
-              CORE FOCUS AREAS
-            </div>
-            {['LLM Agentic Pipelines','Computer Vision (CV)','Full-Stack ML Deployment','Autonomous GitHub Agents'].map((f,i) => (
-              <div key={i} style={{ display:'flex', alignItems:'center', gap:'0.6rem', marginBottom:'0.5rem' }}>
-                <span style={{ color:'var(--cyan)', fontFamily:'var(--font-mono)', fontSize:'0.75rem' }}>▶</span>
-                <span style={{ color:'var(--muted)', fontSize:'0.9rem' }}>{f}</span>
-              </div>
+        {/* Big Skills Block */}
+        <motion.div className="bento-card glass-panel col-span-3 row-span-2" variants={variants} initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "-50px" }}>
+          <div className="bento-icon"><Database size={24}/></div>
+          <h3>Tech Stack</h3>
+          <p className="bento-sub mb-4">I actively construct systems with these technologies.</p>
+          <div className="skills-cloud">
+            {skills.map((skill, idx) => (
+              <span key={idx} className="tech-pill">{skill}</span>
             ))}
-          </motion.div>
-        </div>
-      </div>
+          </div>
+        </motion.div>
 
-      {/* Skills grid */}
-      <motion.div className="glass" variants={card} initial="hidden" whileInView="visible" viewport={{ once:true }}
-        style={{ padding:'2.5rem' }}>
-        <div style={{ fontFamily:'var(--font-mono)', fontSize:'0.68rem', color:'var(--cyan)', letterSpacing:'0.15em', marginBottom:'2rem' }}>
-          &gt; skills --list-all
-        </div>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(5,1fr)', gap:'2rem' }}>
-          {SKILLS.map(({ cat, items }) => (
-            <div key={cat}>
-              <div style={{
-                fontFamily:'var(--font-mono)', fontSize:'0.65rem', color:'var(--muted)',
-                letterSpacing:'0.12em', textTransform:'uppercase', marginBottom:'1rem',
-                borderBottom:'1px solid var(--border)', paddingBottom:'0.5rem'
-              }}>
-                {cat}
-              </div>
-              <div style={{ display:'flex', flexDirection:'column', gap:'0.4rem' }}>
-                {items.map(s => (
-                  <span key={s} className="pill" style={{ fontSize:'0.72rem', justifyContent:'center' }}>{s}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-    </div>
-  </section>
-);
+        {/* Interests Block */}
+        <motion.div className="bento-card glass-panel col-span-1" variants={variants} initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "-50px" }}>
+          <div className="bento-icon"><Lightbulb size={24}/></div>
+          <h3>Core Focus</h3>
+          <p className="bento-muted">LLM Agentic Systems</p>
+          <p className="bento-muted">Machine Learning</p>
+          <p className="bento-muted">Automation</p>
+        </motion.div>
+
+      </div>
+    </section>
+  );
+};
 
 export default About;

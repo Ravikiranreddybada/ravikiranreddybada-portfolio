@@ -8,31 +8,38 @@ import Footer from './components/Footer';
 import './App.css';
 
 function App() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handle = (e) => setMousePos({ x: e.clientX, y: e.clientY });
-    window.addEventListener('mousemove', handle);
-    return () => window.removeEventListener('mousemove', handle);
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const cfg = { damping: 35, stiffness: 180, mass: 1 };
-  const cx = useSpring(mousePos.x, cfg);
-  const cy = useSpring(mousePos.y, cfg);
+  // Use springs for ultra-smooth buttery lag on the cursor
+  const springConfig = { damping: 40, stiffness: 200, mass: 1 };
+  const cursorX = useSpring(mousePosition.x, springConfig);
+  const cursorY = useSpring(mousePosition.y, springConfig);
 
   useEffect(() => {
-    cx.set(mousePos.x);
-    cy.set(mousePos.y);
-  }, [mousePos, cx, cy]);
+    cursorX.set(mousePosition.x);
+    cursorY.set(mousePosition.y);
+  }, [mousePosition, cursorX, cursorY]);
 
   return (
     <div className="app-wrapper">
-      <div className="grid-bg" />
-      <div className="orb orb-1" />
-      <div className="orb orb-2" />
-      <motion.div className="cursor-glow" style={{ x: cx, y: cy }} />
+      <motion.div 
+        className="cursor-glow"
+        style={{
+          x: cursorX,
+          y: cursorY,
+        }}
+      />
       <Navbar />
-      <main style={{ position: 'relative', zIndex: 1 }}>
+      <main>
         <Hero />
         <About />
         <Projects />
