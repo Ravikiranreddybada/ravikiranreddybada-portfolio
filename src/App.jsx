@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useSpring } from 'framer-motion';
+import { motion, useSpring, useScroll } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -29,8 +29,14 @@ function App() {
     cursorY.set(mousePosition.y);
   }, [mousePosition, cursorX, cursorY]);
 
+  const { scrollYProgress } = useScroll();
+
   return (
     <div className="app-wrapper">
+      <motion.div
+        className="progress-bar"
+        style={{ scaleX: scrollYProgress }}
+      />
       <motion.div 
         className="cursor-glow"
         style={{

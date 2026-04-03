@@ -12,15 +12,27 @@ main {
   flex-grow: 1;
 }
 
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-color);
+  transform-origin: 0%;
+  z-index: 9999;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
 /* Dynamic Ambient Glow Tracker */
 .cursor-glow {
   pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 0; /* Behind everything */
