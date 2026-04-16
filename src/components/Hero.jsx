@@ -48,7 +48,7 @@ const Hero = () => {
           <motion.h2 variants={childVariants} className="hero-title">
             <span className="hero-split">Creative</span> <br/>
             <span className="hero-profession-1">AI & ML</span> 
-            <span className="hero-profession-2">& Engineer</span>
+            <span className="hero-profession-2">Engineer</span>
           </motion.h2>
           
           <motion.p variants={childVariants} className="hero-desc">
