@@ -13,7 +13,7 @@ const Projects = () => {
       features: "Integrated Gemini API to generate personalized dermatology reports with skincare routines, diet tips, and product recommendations.",
       tech: ["React", "FastAPI", "TensorFlow", "MongoDB", "Gemini API", "Auth0"],
       github: "https://github.com/Ravikiranreddybada/dermasmart",
-      wip: true
+      live: "https://dermasmart.vercel.app/"
     },
     {
       title: "AgentPilot",
