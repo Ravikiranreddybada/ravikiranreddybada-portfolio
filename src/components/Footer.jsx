@@ -15,8 +15,11 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <div className="footer-title">
-            <h2>Let's build something.</h2>
-            <p className="bento-sub">Open to discussing full-stack AI/ML engineering roles.</p>
+            <h2 className="section-title">
+              <span>Let's build</span> <br/>
+              something.
+            </h2>
+            <p className="bento-sub mb-4" style={{ textAlign: "center" }}>Tell me about your next project or role.</p>
           </div>
           
           <div className="contact-details">

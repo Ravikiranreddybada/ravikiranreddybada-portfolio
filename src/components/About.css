@@ -17,7 +17,8 @@
 
 .bento-card:hover {
   transform: translateY(-5px) scale(1.02);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--accent-color);
+  background: var(--bg-color);
 }
 
 .bento-card.col-span-2 { grid-column: span 2; }
@@ -26,11 +27,11 @@
 
 .bento-icon {
   margin-bottom: 1.5rem;
-  color: var(--text-primary);
-  opacity: 0.8;
+  color: var(--accent-color);
 }
 
 .bento-card h3 {
+  font-family: var(--font-heading);
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }

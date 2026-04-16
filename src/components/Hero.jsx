@@ -37,15 +37,18 @@ const Hero = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <motion.div variants={childVariants} className="availability-badge">
-            <span className="pulse-dot"></span> Available for Opportunities
-          </motion.div>
+          <motion.span variants={childVariants} className="hero-greeting">
+            Hello, I'm
+          </motion.span>
           
-          <motion.h1 variants={childVariants} className="hero-name name-gradient">
-            Bada Ravi Kiran Reddy.
+          <motion.h1 variants={childVariants} className="hero-name">
+            Bada Ravi <br /> Kiran Reddy
           </motion.h1>
-          <motion.h2 variants={childVariants} className="hero-title text-gradient">
-            AI & ML Engineer.
+          
+          <motion.h2 variants={childVariants} className="hero-title">
+            <span className="hero-split">Creative</span> <br/>
+            <span className="hero-profession-1">AI & ML</span> 
+            <span className="hero-profession-2">& Engineer</span>
           </motion.h2>
           
           <motion.p variants={childVariants} className="hero-desc">

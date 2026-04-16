@@ -13,8 +13,6 @@
 }
 
 .footer-title h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 0.5rem;
   color: var(--text-primary);
 }
 
@@ -45,16 +43,17 @@
 }
 
 .con-box:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--bg-color-light);
   color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--accent-color);
   transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px var(--accent-glow);
 }
 
 .con-box span {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .footer-bottom {

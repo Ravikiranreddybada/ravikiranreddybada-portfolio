@@ -25,6 +25,22 @@
 .p-header {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.projects-number {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--border-color-light);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  transition: color 0.4s ease;
+}
+
+.project-row:hover .projects-number {
+  color: var(--accent-color);
+  opacity: 0.5;
 }
 
 .p-title-group {
@@ -35,6 +51,7 @@
 }
 
 .p-title-group h3 {
+  font-family: var(--font-heading);
   font-size: 2rem;
   color: var(--text-primary);
   transition: color 0.3s ease;
@@ -45,7 +62,7 @@
 }
 
 .project-title-link:hover h3 {
-  color: #00d2ff;
+  color: var(--accent-color);
 }
 
 .dev-badge {
@@ -81,8 +98,16 @@
   line-height: 1.7;
 }
 
-.p-impact {
+.p-impact-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
   color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.p-impact {
+  color: var(--text-secondary);
   opacity: 0.9;
 }
 

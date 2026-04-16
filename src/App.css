@@ -18,10 +18,10 @@ main {
   left: 0;
   right: 0;
   height: 4px;
-  background: #00d2ff;
+  background: var(--accent-color);
   transform-origin: 0%;
   z-index: 9999;
-  box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
 /* Dynamic Ambient Glow Tracker */
@@ -32,7 +32,7 @@ main {
   left: 0;
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 0; /* Behind everything */
@@ -41,21 +41,31 @@ main {
 
 /* Section Shared Styles */
 .section-title {
+  font-family: var(--font-heading);
   font-size: 3rem;
   margin-bottom: 4rem;
   letter-spacing: -1px;
+  text-align: center;
+}
+
+.section-title span {
+  color: var(--accent-color);
 }
 
 /* Base Glassmorphism Node */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--bg-color-light);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-md);
   padding: 2.5rem;
   overflow: hidden;
   position: relative;
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+.glass-panel:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
 }
 
 .glass-panel::before {
@@ -76,7 +86,7 @@ main {
   display: inline-flex;
   align-items: center;
   padding: 0.4rem 1rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-color-lighter);
   color: var(--text-secondary);
   border: 1px solid var(--border-color-light);
   border-radius: 50px;
@@ -98,11 +108,15 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem 2rem;
-  background: var(--text-primary);
-  color: var(--bg-color);
-  font-weight: 600;
+  padding: 1rem 2.5rem;
+  background: var(--accent-color);
+  color: #fff;
+  font-weight: var(--font-medium);
   border-radius: 50px;
   font-size: 1rem;
-  transition: transform 0.1s ease;
+  transition: background 0.4s ease, transform 0.2s ease;
+}
+
+.magnetic-btn:hover {
+  background: var(--accent-color-hover);
 }

@@ -65,6 +65,7 @@ const Projects = () => {
             transition={{ duration: 0.5, delay: idx * 0.1 }}
           >
             <div className="p-header">
+              <span className="projects-number">0{idx + 1}</span>
               <div className="p-title-group">
                 <a href={project.live || project.github} target="_blank" rel="noreferrer" className="project-title-link">
                   <h3>{project.title}</h3>
@@ -76,7 +77,8 @@ const Projects = () => {
             
             <div className="p-body">
               <p>{project.desc}</p>
-              <p className="p-impact"><strong>Engineered Impact:</strong> {project.features}</p>
+              <h4 className="p-impact-title">Engineered Impact</h4>
+              <p className="p-impact">{project.features}</p>
             </div>
             
             <div className="p-footer">

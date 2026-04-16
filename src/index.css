@@ -1,27 +1,27 @@
 :root {
-  /* Ultra Premium Dark Palette */
-  --bg-color: #030303;
-  --bg-color-light: rgba(255, 255, 255, 0.03);
-  --bg-color-lighter: rgba(255, 255, 255, 0.06);
+  /* Bedimcode Anid Palette */
+  --bg-color: hsl(240, 100%, 2%);
+  --bg-color-light: hsl(240, 8%, 6%);
+  --bg-color-lighter: hsl(240, 8%, 10%);
   
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-muted: #52525b;
+  --text-primary: hsl(240, 8%, 95%);
+  --text-secondary: hsl(240, 8%, 70%);
+  --text-muted: hsl(240, 8%, 50%);
   
-  --accent-color: #e2e8f0;     /* Crisp white-gray accent */
-  --accent-color-hover: #ffffff;
-  --accent-glow: rgba(255, 255, 255, 0.15); /* Sleek monochromatic glow */
+  --accent-color: hsl(255, 60%, 64%);
+  --accent-color-hover: hsl(255, 80%, 56%);
+  --accent-glow: rgba(139, 99, 246, 0.4);
   
   --border-color: rgba(255, 255, 255, 0.08);
   --border-color-light: rgba(255, 255, 255, 0.15);
   
   /* Typography */
-  --font-heading: 'Syne', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Unbounded', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
   --font-mono: 'Fira Code', monospace;
   
   /* Layout & Spaces */
-  --max-width: 1200px;
+  --max-width: 1120px;
   --section-padding: 8rem 2rem;
   --border-radius-sm: 12px;
   --border-radius-md: 20px;
@@ -52,11 +52,11 @@ html, body {
   background: var(--bg-color);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 210, 255, 0.4);
+  background: var(--accent-color);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00d2ff;
+  background: var(--accent-color-hover);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -97,7 +97,7 @@ img {
 
 /* Elegant Text Gradient for Subtitles Strategy */
 .text-gradient {
-  background: linear-gradient(135deg, #f0f0f0 0%, #8e9095 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-hover) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

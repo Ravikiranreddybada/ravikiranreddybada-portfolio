@@ -21,7 +21,10 @@ const About = () => {
   return (
     <section id="about" className="about-section container">
       <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, amount: 0.2 }}>
-        <h2 className="section-title">Capabilities.</h2>
+        <h2 className="section-title">
+          <span>Core</span> <br/>
+          Capabilities
+        </h2>
       </motion.div>
       
       <div className="bento-grid">
