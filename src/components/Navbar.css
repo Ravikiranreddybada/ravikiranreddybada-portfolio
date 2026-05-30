@@ -11,8 +11,8 @@
 
 .navbar.scrolled {
   padding: 1rem 0;
-  background: rgba(5, 5, 5, 0.8);
-  backdrop-filter: blur(12px);
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -23,12 +23,28 @@
 }
 
 .nav-logo {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: var(--font-semi-bold);
-  letter-spacing: -0.5px;
-  display: flex;
+  text-decoration: none;
+}
+
+.rk-badge {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--accent-color);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rk-badge:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
 .nav-links {
@@ -39,18 +55,28 @@
 
 .nav-links a {
   font-family: var(--font-body);
-  font-size: var(--normal-font-size, 0.938rem);
-  font-weight: var(--font-medium, 500);
-  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
   transition: color 0.3s ease;
+  letter-spacing: 0.02em;
 }
 
 .nav-links a:hover {
-  color: var(--accent-color);
+  color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* simple mobile behavior for now */
+    gap: 1.5rem;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    display: none;
   }
 }

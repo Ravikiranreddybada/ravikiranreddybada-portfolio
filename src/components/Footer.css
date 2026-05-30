@@ -1,64 +1,42 @@
 .footer {
-  padding: var(--section-padding);
-  padding-bottom: 2rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border-color);
   margin-top: 4rem;
 }
 
-.footer-content {
+.footer-inner {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
-  padding: 5rem 2rem;
-}
-
-.footer-title h2 {
-  color: var(--text-primary);
-}
-
-.footer-title .bento-sub {
-  margin-bottom: 3rem;
-}
-
-.contact-details {
-  display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+  gap: 1rem;
 }
 
-.con-box {
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-sm);
-  color: var(--text-secondary);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  gap: 2rem;
 }
 
-.con-box:hover {
-  background: var(--bg-color-light);
-  color: var(--text-primary);
-  border-color: var(--accent-color);
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 10px 30px var(--accent-glow);
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
 }
 
-.con-box span {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 500;
+.footer-links a:hover {
+  color: var(--accent-color);
 }
 
-.footer-bottom {
-  text-align: center;
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-color);
+@media (max-width: 560px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
 }

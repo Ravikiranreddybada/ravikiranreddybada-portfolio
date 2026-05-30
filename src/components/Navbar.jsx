@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Layers } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -17,12 +14,12 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <a href="#home" className="nav-logo">
-          <Layers size={24} style={{marginRight: '8px'}} />
-          BRKR
+          <span className="rk-badge">RK</span>
         </a>
         <ul className="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Work</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>

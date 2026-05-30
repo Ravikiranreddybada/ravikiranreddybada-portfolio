@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -14,12 +16,10 @@ function App() {
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Use springs for ultra-smooth buttery lag on the cursor
   const springConfig = { damping: 40, stiffness: 200, mass: 1 };
   const cursorX = useSpring(mousePosition.x, springConfig);
   const cursorY = useSpring(mousePosition.y, springConfig);
@@ -37,18 +37,17 @@ function App() {
         className="progress-bar"
         style={{ scaleX: scrollYProgress }}
       />
-      <motion.div 
+      <motion.div
         className="cursor-glow"
-        style={{
-          x: cursorX,
-          y: cursorY,
-        }}
+        style={{ x: cursorX, y: cursorY }}
       />
       <Navbar />
       <main>
         <Hero />
         <About />
         <Projects />
+        <Skills />
+        <Contact />
       </main>
       <Footer />
     </div>
