@@ -1,84 +1,29 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import './Skills.css';
+import { skills } from '../data/profile'
+import { Reveal, Section } from './ui'
+import { spot } from './motion-utils'
 
-const skillGroups = [
-  {
-    label: "Languages",
-    skills: ["Python", "TypeScript", "JavaScript", "SQL"]
-  },
-  {
-    label: "Backend",
-    skills: ["FastAPI", "asyncio", "Pydantic v2", "httpx", "REST APIs"]
-  },
-  {
-    label: "LLM / Agents",
-    skills: ["ReAct orchestration", "RAG pipelines", "Groq", "Gemini 2.0", "Pinecone"]
-  },
-  {
-    label: "Databases",
-    skills: ["Pinecone (vector)", "MongoDB", "MySQL"]
-  },
-  {
-    label: "Frontend",
-    skills: ["React.js", "Next.js 14", "Tailwind CSS", "TypeScript"]
-  },
-  {
-    label: "DevOps",
-    skills: ["Docker", "Jenkins", "Git", "Render", "Vercel", "AWS"]
-  }
-];
+const spans = ['md:col-span-4', 'md:col-span-2', 'md:col-span-3', 'md:col-span-3', 'md:col-span-2', 'md:col-span-4']
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09 } }
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 55, damping: 18 }
-  }
-};
-
-const Skills = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
+export default function Skills() {
   return (
-    <section id="skills" className="skills-section container">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <span>Tech</span> Stack
-      </motion.h2>
-
-      <motion.div
-        ref={ref}
-        className="skills-grid"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        {skillGroups.map((group, idx) => (
-          <motion.div key={idx} className="skill-card glass-panel" variants={cardVariants}>
-            <p className="skill-group-label">{group.label}</p>
-            <div className="skill-pills">
-              {group.skills.map((skill, i) => (
-                <span key={i} className="tech-pill">{skill}</span>
-              ))}
+    <Section id="skills" title="Toolkit, by where I used it.">
+      <div className="grid gap-4 md:grid-cols-6">
+        {skills.map((g, i) => (
+          <Reveal key={g.group} delay={i * 0.05} className={spans[i]}>
+            <div
+              onPointerMove={spot}
+              className={`spotlight h-full rounded-[20px] border border-line p-6 md:p-7 ${i === 0 ? 'bg-[radial-gradient(120%_120%_at_100%_0%,var(--accent-soft),transparent_55%)] bg-surface' : 'bg-surface'}`}
+            >
+              <h3 className="text-lg font-semibold tracking-tight">{g.group}</h3>
+              <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2.5">
+                {g.items.map((s) => (
+                  <span key={s} className="text-[15px] text-muted transition-colors hover:text-ink">{s}</span>
+                ))}
+              </div>
             </div>
-          </motion.div>
+          </Reveal>
         ))}
-      </motion.div>
-    </section>
-  );
-};
-
-export default Skills;
+      </div>
+    </Section>
+  )
+}

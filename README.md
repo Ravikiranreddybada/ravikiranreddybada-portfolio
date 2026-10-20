@@ -1,16 +1,22 @@
-# React + Vite
+# ravikiranreddy.online
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio of Bada Ravi Kiran Reddy, AI engineer and Data Science Intern at BLP Industry.AI.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+React 19, Vite, Tailwind CSS v4, Motion, Phosphor icons, Geist fonts. Light and dark themes (system default, manual toggle).
 
-## React Compiler
+## Content
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+All copy lives in [`src/data/profile.js`](src/data/profile.js). It is taken from the private profile knowledge base and follows its claims guardrails: only verified numbers, team credit where work was shared, and honesty notes on synthetic or offline evals.
 
-## Expanding the ESLint configuration
+Project screenshots in `public/shots/` are captured from the live deployments.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run
+
+```bash
+npm install
+npm run dev
+```
+
+`npm run build` writes the static site to `dist/`. `npm run lint` runs ESLint.
