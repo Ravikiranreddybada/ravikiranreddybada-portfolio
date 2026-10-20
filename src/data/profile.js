@@ -139,8 +139,8 @@ export const work = [
       'Builds in a Web Worker; guards catch contradicting counts and unsupported systems without a model call.',
       'Fastify + Zod backend with tenants, JWT / JWKS and a WebSocket hub.',
     ],
-    feature: { value: '1,443', label: 'pipe fittings placed in one deterministic build' },
-    note: 'Repository not public yet.',
+    shot: '/shots/chat3d.jpg',
+    note: 'Repository not public yet. Screenshot from a local build.',
     stack: ['TypeScript', 'React Three Fiber', 'Fastify', 'Zod', 'PostgreSQL', 'Claude API'],
   },
 ]

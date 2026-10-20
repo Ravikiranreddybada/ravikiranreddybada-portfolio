@@ -5,6 +5,14 @@ import { work } from '../data/profile'
 import { Chip, Reveal, Section } from './ui'
 import { ease, spot } from './motion-utils'
 
+function Shot({ href, className, children }) {
+  return href ? (
+    <a href={href} target="_blank" rel="noreferrer" className={className}>{children}</a>
+  ) : (
+    <div className={className}>{children}</div>
+  )
+}
+
 function Card({ p, wide }) {
   const [open, setOpen] = useState(false)
   const reduce = useReducedMotion()
@@ -15,25 +23,17 @@ function Card({ p, wide }) {
       className={`spotlight group flex h-full flex-col overflow-hidden rounded-[20px] border border-line bg-surface shadow-[var(--shadow)] ${wide ? 'md:grid md:grid-cols-[1fr_1.15fr]' : ''}`}
     >
       {p.shot ? (
-        <a href={p.live} target="_blank" rel="noreferrer" className={`relative block overflow-hidden bg-surface-2 ${wide ? 'md:order-2 md:h-full' : ''}`}>
+        <Shot href={p.live} className={`relative block overflow-hidden bg-surface-2 ${wide ? 'md:order-2 md:h-full' : ''}`}>
           <img
             src={p.shot}
-            alt={`${p.name} live app screenshot`}
+            alt={`${p.name} app screenshot`}
             loading="lazy"
             width="1440"
             height="900"
             className={`w-full object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] ${wide ? 'aspect-[16/10] md:aspect-auto md:h-full' : 'aspect-[16/10]'}`}
           />
-        </a>
-      ) : (
-        <div className="relative aspect-[16/10] overflow-hidden bg-[radial-gradient(120%_90%_at_80%_0%,var(--accent-soft),transparent_60%)]">
-          <div className="dot-field absolute inset-0" />
-          <div className="absolute inset-0 grid place-items-center">
-            <span className="font-mono text-[clamp(3rem,8vw,5.5rem)] font-medium tracking-tighter text-ink/90">{p.feature.value}</span>
-          </div>
-          <p className="absolute inset-x-0 bottom-5 text-center text-sm text-muted">{p.feature.label}</p>
-        </div>
-      )}
+        </Shot>
+      ) : null}
 
       <div className="flex flex-1 flex-col p-6 md:p-8">
         <div className="flex items-start justify-between gap-4">
