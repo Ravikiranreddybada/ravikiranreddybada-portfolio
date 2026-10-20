@@ -1,89 +1,49 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Mail, ArrowUpRight } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import './Contact.css';
+import { useState } from 'react'
+import { ArrowUpRight, Check, Copy, GithubLogo, LinkedinLogo } from '@phosphor-icons/react'
+import { person } from '../data/profile'
+import { LinkButton, Reveal } from './ui'
 
-const links = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "badaravikiranreddy@gmail.com",
-    href: "mailto:badaravikiranreddy@gmail.com"
-  },
-  {
-    icon: FaGithub,
-    label: "GitHub",
-    value: "github.com/Ravikiranreddybada",
-    href: "https://github.com/Ravikiranreddybada"
-  },
-  {
-    icon: FaLinkedin,
-    label: "LinkedIn",
-    value: "linkedin.com/in/ravikiranreddybada",
-    href: "https://linkedin.com/in/ravikiranreddybada"
+export default function Contact() {
+  const [copied, setCopied] = useState(false)
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(person.email)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1800)
+    } catch { /* clipboard blocked; mailto still works */ }
   }
-];
 
-const Contact = () => {
   return (
-    <section id="contact" className="contact-section container">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <span>Let's</span> Build
-      </motion.h2>
-
-      <motion.div
-        className="contact-wrapper glass-panel"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.1 }}
-      >
-        <div className="contact-left">
-          <p className="contact-eyebrow">Open to 6–12 month internships</p>
-          <h3 className="contact-headline">
-            Got an interesting problem?<br />Let's work on it.
-          </h3>
-          <p className="contact-sub">
-            I'm actively looking for opportunities in AI/ML engineering, backend systems,
-            or full-stack roles. If the work is real and the feedback loop is tight, I'm interested.
+    <footer id="contact" className="relative overflow-hidden border-t border-line">
+      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-accent-soft blur-3xl" />
+      <div className="relative mx-auto w-full max-w-[1240px] px-4 pb-10 pt-24 md:px-8 md:pt-32">
+        <Reveal>
+          <h2 className="max-w-[16ch] text-[clamp(2.5rem,6.5vw,5rem)] font-semibold leading-[0.98] tracking-[-0.04em]">
+            Building something that has to be right<span className="text-accent">?</span>
+          </h2>
+          <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-muted">
+            B.Tech 2027 batch. Internship runs until 15 Jan 2027. Open to AI / ML, GenAI and forward-deployed roles, Bengaluru first.
           </p>
-          <a href="mailto:badaravikiranreddy@gmail.com" className="magnetic-btn contact-cta">
-            Send an Email <ArrowUpRight size={18} style={{ marginLeft: 8 }} />
-          </a>
-        </div>
-
-        <div className="contact-right">
-          {links.map(({ icon: Icon, label, value, href }, idx) => (
-            <motion.a
-              key={idx}
-              href={href}
-              target={href.startsWith('mailto') ? undefined : '_blank'}
-              rel="noreferrer"
-              className="contact-link-card"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 + idx * 0.1 }}
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <LinkButton href={`mailto:${person.email}`} primary icon={ArrowUpRight}>Email me</LinkButton>
+            <button
+              onClick={copy}
+              className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-mono text-sm text-muted transition-colors hover:bg-surface-2 hover:text-ink active:scale-[0.98]"
             >
-              <Icon size={20} className="contact-link-icon" />
-              <div className="contact-link-text">
-                <span className="contact-link-label">{label}</span>
-                <span className="contact-link-value">{value}</span>
-              </div>
-              <ArrowUpRight size={16} className="link-arrow" />
-            </motion.a>
-          ))}
-        </div>
-      </motion.div>
-    </section>
-  );
-};
+              {copied ? <Check size={15} className="text-accent" /> : <Copy size={15} />}
+              <span aria-live="polite">{copied ? 'Copied' : person.email}</span>
+            </button>
+          </div>
+        </Reveal>
 
-export default Contact;
+        <div className="mt-24 flex flex-col-reverse items-start justify-between gap-6 border-t border-line pt-8 text-sm text-muted sm:flex-row sm:items-center">
+          <p>© {new Date().getFullYear()} {person.name}</p>
+          <div className="flex items-center gap-5">
+            <a href={person.links.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-ink"><GithubLogo size={17} />GitHub</a>
+            <a href={person.links.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-ink"><LinkedinLogo size={17} />LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
