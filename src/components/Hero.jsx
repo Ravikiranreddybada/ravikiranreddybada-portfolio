@@ -73,11 +73,11 @@ export default function Hero() {
             <motion.img
               src={person.photo}
               alt="Portrait of Bada Ravi Kiran Reddy"
-              width="825"
+              width="880"
               height="1100"
               fetchPriority="high"
               style={{ y: photoY, scale: photoScale }}
-              className="aspect-[4/5] w-full object-cover object-[50%_70%]"
+              className="aspect-[4/5] w-full object-cover object-[50%_35%]"
             />
           </div>
           <figcaption className="mt-4 flex items-baseline justify-between gap-4 text-sm">

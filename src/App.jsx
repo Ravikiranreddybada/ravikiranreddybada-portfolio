@@ -21,10 +21,10 @@ export default function App() {
         <Proof />
         <Experience />
         <Work />
-        <Earlier />
         <Workflow />
         <Skills />
         <About />
+        <Earlier />
       </main>
       <Contact />
     </div>
