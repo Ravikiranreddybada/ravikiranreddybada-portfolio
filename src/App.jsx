@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import Proof from './components/Proof'
 import Experience from './components/Experience'
 import Work from './components/Work'
+import Contributions from './components/Contributions'
 import Skills from './components/Skills'
 import About from './components/About'
 import Contact from './components/Contact'
@@ -19,6 +20,7 @@ export default function App() {
         <Proof />
         <Experience />
         <Work />
+        <Contributions />
         <Skills />
         <About />
       </main>
