@@ -5,36 +5,15 @@ import { work } from '../data/profile'
 import { Chip, Reveal, Section } from './ui'
 import { ease, spot } from './motion-utils'
 
-function Shot({ href, className, children }) {
-  return href ? (
-    <a href={href} target="_blank" rel="noreferrer" className={className}>{children}</a>
-  ) : (
-    <div className={className}>{children}</div>
-  )
-}
-
-function Card({ p, wide }) {
+function Card({ p }) {
   const [open, setOpen] = useState(false)
   const reduce = useReducedMotion()
 
   return (
     <article
       onPointerMove={spot}
-      className={`spotlight group flex h-full flex-col overflow-hidden rounded-[20px] border border-line bg-surface shadow-[var(--shadow)] ${wide ? 'md:grid md:grid-cols-[1fr_1.15fr]' : ''}`}
+      className="spotlight group flex h-full flex-col overflow-hidden rounded-[20px] border border-line bg-surface shadow-[var(--shadow)]"
     >
-      {p.shot ? (
-        <Shot href={p.live} className={`relative block overflow-hidden bg-surface-2 ${wide ? 'md:order-2 md:h-full' : ''}`}>
-          <img
-            src={p.shot}
-            alt={`${p.name} app screenshot`}
-            loading="lazy"
-            width="1440"
-            height="900"
-            className={`w-full object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] ${wide ? 'aspect-[16/10] md:aspect-auto md:h-full' : 'aspect-[16/10]'}`}
-          />
-        </Shot>
-      ) : null}
-
       <div className="flex flex-1 flex-col p-6 md:p-8">
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -113,8 +92,8 @@ export default function Work() {
     <Section id="work" title="Systems I built to be questioned.">
       <div className="grid gap-5 md:grid-cols-2">
         {work.map((p, i) => (
-          <Reveal key={p.id} delay={i * 0.08} className={i === 0 ? 'md:col-span-2' : ''}>
-            <Card p={p} wide={false} />
+          <Reveal key={p.id} delay={i * 0.08}>
+            <Card p={p} />
           </Reveal>
         ))}
       </div>

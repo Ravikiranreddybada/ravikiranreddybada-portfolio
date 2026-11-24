@@ -64,7 +64,7 @@ export const work = [
       'Runs a LangGraph copilot with 13 typed tools, hybrid RAG, guarded text-to-SQL and numeric grounding verification.',
     ],
     note: 'Forecast metrics come from the reproducible synthetic benchmark dataset.',
-    stack: ['Python', 'LightGBM', 'SHAP', 'LangGraph', 'DuckDB', 'MCP', 'FastAPI', 'Kubernetes'], shot: '/shots/kairos.jpg',
+    stack: ['Python', 'LightGBM', 'SHAP', 'LangGraph', 'DuckDB', 'MCP', 'FastAPI', 'Kubernetes'],
     github: 'https://github.com/Ravikiranreddybada/kairos', live: 'https://kairos-web-mu.vercel.app',
   },
   {
@@ -81,7 +81,7 @@ export const work = [
       'Gates delivery with 78 golden and 24 held-out cases, OpenTelemetry GenAI tracing and 123 tests.',
     ],
     note: 'Scale is an architecture target: designed to serve 1 lakh daily users.',
-    stack: ['LangGraph', 'MCP', 'FastAPI', 'PostgreSQL', 'Redis', 'OpenTelemetry', 'Terraform', 'Next.js'], shot: '/shots/sahay.jpg',
+    stack: ['LangGraph', 'MCP', 'FastAPI', 'PostgreSQL', 'Redis', 'OpenTelemetry', 'Terraform', 'Next.js'],
     github: 'https://github.com/Ravikiranreddybada/sahay', live: 'https://sahay-web-nu.vercel.app',
   },
 ]

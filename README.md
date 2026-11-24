@@ -53,10 +53,6 @@ An 8-month BMS audit produced 6 Energy Conservation Measures worth **A$72,072 pe
 
 ### Kairos: decisions under uncertainty
 
-<a href="https://kairos-web-mu.vercel.app">
-  <img src="public/shots/kairos.jpg" alt="Kairos supply-chain decision intelligence interface" />
-</a>
-
 A production-grade supply-chain platform that moves from demand segmentation to probabilistic forecasts, inventory policy and a grounded planning copilot.
 
 - Champion LightGBM: **WAPE 0.324 / MASE 0.726**, with **82.8% coverage** on 80% conformal intervals (synthetic benchmark)
@@ -67,10 +63,6 @@ A production-grade supply-chain platform that moves from demand segmentation to 
 [Live demo](https://kairos-web-mu.vercel.app) / [Source](https://github.com/Ravikiranreddybada/kairos)
 
 ### Sahay: safety before fluency
-
-<a href="https://sahay-web-nu.vercel.app">
-  <img src="public/shots/sahay.jpg" alt="Sahay healthcare care assistant interface" />
-</a>
 
 A healthcare assistant designed to serve **1 lakh daily users**, with safety and authorization enforced in the runtime rather than left to the model.
 
@@ -121,7 +113,6 @@ src/
   App.jsx           page composition
   index.css         tokens, themes and motion rules
 public/
-  shots/            real project screenshots
   profile-sm.jpg    optimized portrait
 ```
 
