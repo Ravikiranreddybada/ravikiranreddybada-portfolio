@@ -4,30 +4,30 @@
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
-/* Tokens. Light first, dark under [data-theme='dark']. One accent: signal lime. */
+/* Cold technical neutrals with one cobalt accent. */
 :root {
-  --bg: #f4f4f2;
+  --bg: #f3f6f8;
   --surface: #ffffff;
-  --surface-2: #ebebe7;
-  --ink: #141517;
-  --muted: #5d6066;
-  --line: rgb(20 21 23 / 0.1);
-  --accent: #3f6d0a;
-  --accent-ink: #f4f4f2;
-  --accent-soft: rgb(63 109 10 / 0.1);
-  --shadow: 0 1px 0 rgb(255 255 255 / 0.6) inset, 0 20px 50px -30px rgb(30 40 20 / 0.35);
+  --surface-2: #e8edf2;
+  --ink: #121820;
+  --muted: #566171;
+  --line: rgb(18 24 32 / 0.11);
+  --accent: #1457d9;
+  --accent-ink: #f7f9fc;
+  --accent-soft: rgb(20 87 217 / 0.1);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.75) inset, 0 24px 60px -38px rgb(23 56 110 / 0.42);
   color-scheme: light;
 }
 [data-theme='dark'] {
-  --bg: #0c0d0f;
-  --surface: #141518;
-  --surface-2: #1b1d21;
-  --ink: #ecece8;
-  --muted: #9a9da4;
-  --line: rgb(236 236 232 / 0.09);
-  --accent: #b9f06c;
-  --accent-ink: #0c0d0f;
-  --accent-soft: rgb(185 240 108 / 0.1);
+  --bg: #0b0f15;
+  --surface: #121821;
+  --surface-2: #19212c;
+  --ink: #edf2f7;
+  --muted: #98a5b5;
+  --line: rgb(237 242 247 / 0.1);
+  --accent: #71a2ff;
+  --accent-ink: #07101f;
+  --accent-soft: rgb(113 162 255 / 0.11);
   --shadow: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 30px 60px -30px rgb(0 0 0 / 0.7);
   color-scheme: dark;
 }

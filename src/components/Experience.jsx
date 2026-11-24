@@ -4,7 +4,7 @@ import { Chip, Reveal, Section } from './ui'
 // All client projects are shown in full. No tabs: visitors must not have to discover hidden content.
 export default function Experience() {
   return (
-    <Section id="experience" title="Building for airports, end to end.">
+    <Section id="experience" title="Production work, with consequences.">
       <div className="grid grid-cols-[minmax(0,1fr)] gap-10 md:grid-cols-[320px_minmax(0,1fr)] md:gap-16">
         <Reveal className="md:sticky md:top-28 md:self-start">
           <div className="rounded-[20px] border border-line bg-surface p-6 shadow-[var(--shadow)]">

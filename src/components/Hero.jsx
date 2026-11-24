@@ -30,7 +30,7 @@ export default function Hero() {
               <span className="pulse-ring absolute size-2 rounded-full bg-accent" />
               <span className="size-2 rounded-full bg-accent" />
             </span>
-            Open to 2027 AI / ML roles
+            AI/ML engineering, built for production
           </motion.p>
 
           <h1 className="text-[clamp(2.75rem,7vw,5.6rem)] font-semibold leading-[0.95] tracking-[-0.045em]">
@@ -49,7 +49,7 @@ export default function Hero() {
           </h1>
 
           <motion.p {...enter(3)} className="mt-7 max-w-[34ch] text-lg leading-relaxed text-muted md:text-xl">
-            AI engineer. I build streaming pipelines, grounded LLM agents and 3D digital twins for airport clients.
+            {person.sub}
           </motion.p>
 
           <motion.div {...enter(4)} className="mt-9 flex flex-wrap items-center gap-3">
@@ -82,7 +82,7 @@ export default function Hero() {
           </div>
           <figcaption className="mt-4 flex items-baseline justify-between gap-4 text-sm">
             <span className="font-medium">{person.title}</span>
-            <span className="font-mono text-xs text-muted">Bengaluru</span>
+            <span className="font-mono text-xs text-muted">Python / Agents / Systems</span>
           </figcaption>
         </motion.figure>
       </div>

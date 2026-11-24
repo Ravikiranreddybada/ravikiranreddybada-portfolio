@@ -6,7 +6,7 @@ const spans = ['md:col-span-4', 'md:col-span-2', 'md:col-span-3', 'md:col-span-3
 
 export default function Skills() {
   return (
-    <Section id="skills" title="Toolkit, by where I used it.">
+    <Section id="skills" title="A stack shaped by real constraints.">
       <div className="grid gap-4 md:grid-cols-6">
         {skills.map((g, i) => (
           <Reveal key={g.group} delay={i * 0.05} className={spans[i]}>

@@ -1,7 +1,7 @@
-import { proof, workflow } from '../data/profile'
+import { proof } from '../data/profile'
 import { Reveal } from './ui'
 
-const stack = ['Python', 'LangGraph', 'MCP', 'FastAPI', 'Kafka', 'PostgreSQL', 'React Three Fiber', 'Gemini', 'Claude', 'MediaMTX', 'WebRTC', 'LightGBM', 'Docker', 'Cloud Run', ...workflow.tools]
+const stack = ['Python', 'LangGraph', 'MCP', 'FastAPI', 'Kafka', 'PostgreSQL', 'DeepStream', 'Gemini', 'Claude', 'LightGBM', 'Docker', 'Kubernetes', 'Cloud Run', 'OpenTelemetry']
 
 export default function Proof() {
   return (

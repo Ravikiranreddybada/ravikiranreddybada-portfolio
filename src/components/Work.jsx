@@ -110,11 +110,11 @@ function Card({ p, wide }) {
 
 export default function Work() {
   return (
-    <Section id="work" title="Selected work.">
+    <Section id="work" title="Systems I built to be questioned.">
       <div className="grid gap-5 md:grid-cols-2">
         {work.map((p, i) => (
           <Reveal key={p.id} delay={i * 0.08} className={i === 0 ? 'md:col-span-2' : ''}>
-            <Card p={p} wide={i === 0} />
+            <Card p={p} wide={false} />
           </Reveal>
         ))}
       </div>

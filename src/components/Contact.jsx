@@ -19,10 +19,10 @@ export default function Contact() {
       <div className="relative mx-auto w-full max-w-[1240px] px-4 pb-10 pt-24 md:px-8 md:pt-32">
         <Reveal>
           <h2 className="max-w-[16ch] text-[clamp(2.5rem,6.5vw,5rem)] font-semibold leading-[0.98] tracking-[-0.04em]">
-            Building something that has to be right<span className="text-accent">?</span>
+            Need an AI system you can defend<span className="text-accent">?</span>
           </h2>
           <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-muted">
-            B.Tech 2027 batch. Internship runs until 15 Jan 2027. Open to AI / ML, GenAI and forward-deployed roles, Bengaluru first.
+            I am open to AI/ML, GenAI and forward-deployed engineering roles for the 2027 batch.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <LinkButton href={`mailto:${person.email}`} primary icon={ArrowUpRight}>Email me</LinkButton>
